@@ -1,4 +1,4 @@
-const { groupBy, orderBy } = require("../../data/db-config");
+
 const db = require("../../data/db-config");
 
 function find() {
@@ -46,6 +46,7 @@ const findById = async (scheme_id) => {
     */
 
   /*
+
     3B- Test in Postman and see that the resulting data does not look like a scheme,
     but more like an array of steps each including scheme information:
 
@@ -185,7 +186,7 @@ const addStep = async (scheme_id, step) => {
     scheme_id,
   });
   return findSteps(scheme_id);
-  S;
+  
 };
 
 module.exports = {
