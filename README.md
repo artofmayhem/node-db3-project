@@ -25,7 +25,7 @@ There are two possible ways to submit your project. Your instructor should have 
 
 Open `data/schemes.db3` using a graphical tool like SQLite Studio and study the data inside the `schemes` and `steps` tables. The data can be reset at any time by executing `npm run seed`.
 
-### API //DO ME SECOND
+### API
 
 Open `api/schemes/scheme-router.js` and study the specification for each endpoint. You do not need to make any changes to this file.
 
@@ -82,7 +82,7 @@ Write db access functions in `api/schemes/scheme-model.js` following the instruc
 
 Use a graphical tool like SQLite Studio to open `./data/northwind.db3` and execute the following queries:
 
-(Write the queries inside `./queries.sql` under the corresponding comment)
+(Write the queries inside `./queries.sql` under the corresponding comment) DONE
 
 - Display the ProductName and CategoryName for all products in the database. Returns 77 records.
 - Display the order Id and shipper CompanyName for all orders placed before August 9 2012. Returns 429 records.

@@ -1,42 +1,62 @@
-/*
-  If `scheme_id` does not exist in the database:
+const db = require("../../data/db-config");
+console.log(db)
 
-  status 404
-  {
-    "message": "scheme with scheme_id <actual id> not found"
+const checkSchemeId = async (req, res, next) => {
+  try {
+    const scheme = await db('schemes')
+      .select('*')
+      .where("scheme_id", req.params.scheme_id)
+
+    if(scheme.length < 1){
+      return res.status(404).json({
+        message: `scheme with scheme_id ${req.params.scheme_id} not found`
+      })
+    }
+
+    next()
+  } catch(err){
+    next(err)
   }
-*/
-const checkSchemeId = (req, res, next) => {
+};
 
-}
 
-/*
-  If `scheme_name` is missing, empty string or not a string:
-
-  status 400
-  {
-    "message": "invalid scheme_name"
-  }
-*/
 const validateScheme = (req, res, next) => {
-
-}
-
-/*
-  If `instructions` is missing, empty string or not a string, or
-  if `step_number` is not a number or is smaller than one:
-
-  status 400
-  {
-    "message": "invalid step"
+  const schemeName = req.body.scheme_name; 
+  //If `scheme_name` is missing, empty string or not a string:
+  if (!schemeName || schemeName.length < 1 || typeof schemeName !== "string") {
+    return res.status(400).json({ 
+      //status 400{"message": "invalid scheme_name"}
+      message: "invalid scheme_name",
+    });
+  } else {
+    next();
   }
-*/
-const validateStep = (req, res, next) => {
+};
 
-}
+
+const validateStep = (req, res, next) => {
+  const instructions = req.body.instructions;
+  const stepNumber = req.body.step_number;
+  if (
+    // If `instructions` is missing, empty string or not a string, or
+    //if `step_number` is not a number or is smaller than one:
+    !instructions ||
+    stepNumber < 1 ||
+    typeof instructions !== "string" ||
+    stepNumber < 1 ||
+    typeof stepNumber !== "number"
+  ) {
+    //status 400{"message": "invalid step"}
+    return res.status(400).json({
+      message: "invalid step",
+    });
+  } else {
+    next();
+  }
+};
 
 module.exports = {
   checkSchemeId,
   validateScheme,
   validateStep,
-}
+};
