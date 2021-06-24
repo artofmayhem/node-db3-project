@@ -25,7 +25,7 @@ There are two possible ways to submit your project. Your instructor should have 
 
 Open `data/schemes.db3` using a graphical tool like SQLite Studio and study the data inside the `schemes` and `steps` tables. The data can be reset at any time by executing `npm run seed`.
 
-### API
+### API //DO ME SECOND
 
 Open `api/schemes/scheme-router.js` and study the specification for each endpoint. You do not need to make any changes to this file.
 
@@ -35,7 +35,7 @@ Open `api/schemes/scheme-router.js` and study the specification for each endpoin
 - `[POST] /api/schemes`
 - `[POST] /api/schemes/:scheme_id/steps`
 
-### Middleware Functions
+### Middleware Functions   //DO ME SECOND
 
 Write middleware functions in `api/schemes/scheme-middleware.js` following the instructions inside that file:
 
@@ -43,9 +43,9 @@ Write middleware functions in `api/schemes/scheme-middleware.js` following the i
 - [ ] `validateScheme`
 - [ ] `validateStep`
 
-### Database Functions
+### Database Functions //DO ME FIRST  //COMPLETE SERVER STILL WORKING
 
-Write db access functions in `api/schemes/scheme-model.js` following the instructions inside that file:
+Write db access functions in `api/schemes/scheme-model.js` following the instructions inside that file: 
 
 - [ ] `find`
 - [ ] `findById`
